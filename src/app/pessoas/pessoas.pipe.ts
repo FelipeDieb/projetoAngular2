@@ -14,17 +14,4 @@ export class FiltraPorNome implements PipeTransform {
 
 }
 
-@Pipe({
-  name: 'filtroPorCpf'
-})
-export class FiltraPorCpf implements PipeTransform {
-
-  transform(pessoas,digitado: string){
-        // captura o que foi digitado
-        let filtro: string = digitado ? digitado : '';
-        // se tem filtro, retorna a lista filtrada
-        return filtro ? pessoas.filter(pessoa=> pessoa.cpf.indexOf(filtro) != -1) : pessoas;
-    }
-
-}
 

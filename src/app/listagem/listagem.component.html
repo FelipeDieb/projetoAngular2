@@ -42,14 +42,14 @@
     </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let pessoa of pessoas | filtroPorNome:nomeProcurado.value | filtroPorCpf:cpfProcurado.value">
+      <tr *ngFor="let pessoa of pessoas | filtroPorNome:nomeProcurado.value | filtroPorNome:cpfProcurado.value">
         <td>{{pessoa.cod}}</td>
         <td>{{pessoa.nome}}</td>
         <td>{{pessoa.email}}</td>
         <td>{{pessoa.cpf}}</td>
         <td>{{pessoa.idade}}</td>
         <td>{{pessoa.telefone}}</td>
-        <td>{{pessoa.title}}</td>
+        <td>{{pessoa.cpf}}</td>
       </tr>
   </tbody>
 </table>

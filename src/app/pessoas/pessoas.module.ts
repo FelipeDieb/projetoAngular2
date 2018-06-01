@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PessoasComponent } from './pessoas.component';
-import { PessoasPipe } from './pessoas.pipe';
+import { FiltraPorNome } from './pessoas.pipe';
 
 @NgModule({
   imports: [
     CommonModule,PessoasModule
   ],
-  declarations: [ PessoasComponent , PessoasPipe],
-  exports: [ PessoasComponent, PessoasPipe ]
+  declarations: [ PessoasComponent , FiltraPorNome],
+  exports: [ PessoasComponent, FiltraPorNome ]
 })
 export class PessoasModule { }

@@ -12,7 +12,6 @@ import { TabelaModule } from './tabela/tabela.module';
 import { CadastroModule } from './cadastro/cadastro.module';
 import { ListagemModule } from './listagem/listagem.module';
 import { routing } from './app.routes';
-import { FiltraPorCpf } from './pessoas/pessoas.pipe';
 import { FiltraPorNome } from './pessoas/pessoas.pipe';
 import { TelefonesComponent } from './telefones/telefones.component';
 
@@ -23,7 +22,6 @@ import { TelefonesComponent } from './telefones/telefones.component';
     CadastroComponent,
     ListagemComponent,
     FiltraPorNome,
-    FiltraPorCpf,
     TelefonesComponent
   ],
   imports: [
