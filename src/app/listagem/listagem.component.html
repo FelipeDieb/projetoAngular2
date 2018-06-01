@@ -1,0 +1,58 @@
+
+
+<div class="container">
+<div class="jumbotron">
+    <h1 class="text-center">Listagem de Pessoas</h1>
+</div>
+
+
+<div class="row">
+        <div class="col-md-8">
+            <form>
+                 <div class="form-group">
+                     <input class="form-control mx-sm-3" #nomeProcurado  (keyup)="0" 
+                           placeholder="filtrar pelo nome" >
+
+                     <input class="form-control" #cpfProcurado  (keyup)="0" 
+                           placeholder="filtrar pelo cpf" >
+
+                    <span class="input-group-btn">
+                        <a [routerLink]="['/cadastro']" class="btn btn-primary">
+                            Cadastrar
+                        </a>
+                    </span>
+                    
+                </div> 
+            </form>
+        </div> <!-- fim col-md-12 -->
+    </div> <!-- fim row -->
+
+    
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Cpf</th>
+      <th scope="col">Idade</th>
+      <th scope="col">Quantidade Telefone</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let pessoa of pessoas | filtroPorNome:nomeProcurado.value | filtroPorCpf:cpfProcurado.value">
+        <td>{{pessoa.cod}}</td>
+        <td>{{pessoa.nome}}</td>
+        <td>{{pessoa.email}}</td>
+        <td>{{pessoa.cpf}}</td>
+        <td>{{pessoa.idade}}</td>
+        <td>{{pessoa.telefone}}</td>
+        <td>{{pessoa.title}}</td>
+      </tr>
+  </tbody>
+</table>
+
+
+</div>
