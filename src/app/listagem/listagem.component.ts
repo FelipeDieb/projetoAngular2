@@ -34,7 +34,7 @@ export class ListagemComponent  {
         let headers = new Headers();
         headers.append("Content-Type","application/json");
 
-        this.http.post("http://localhost:8080/CrudPessoas/WebService/excluir/"+cod,{headers:headers})
+        this.http.delete("http://localhost:8080/CrudPessoas/WebService/excluir/"+cod,{headers:headers})
            .subscribe(()=> {
                 this.pessoa = new PessoasComponent(); 
                 console.log("Delete com sucesso!");
