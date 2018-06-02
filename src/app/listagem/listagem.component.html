@@ -13,7 +13,7 @@
                      <input class="form-control mx-sm-3" #nomeProcurado  (keyup)="0" 
                            placeholder="filtrar pelo nome" >
 
-                     <input class="form-control" #cpfProcurado  (keyup)="0" 
+                     <input class="form-control" 
                            placeholder="filtrar pelo cpf" >
 
                     <span class="input-group-btn">
@@ -42,7 +42,7 @@
     </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let pessoa of pessoas | filtroPorNome:nomeProcurado.value | filtroPorNome:cpfProcurado.value">
+      <tr *ngFor="let pessoa of pessoas | filtroPorNome:nomeProcurado.value">
         <td>{{pessoa.cod}}</td>
         <td>{{pessoa.nome}}</td>
         <td>{{pessoa.email}}</td>

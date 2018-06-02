@@ -24,11 +24,21 @@ export class CadastroComponent  {
 
         let headers = new Headers();
         headers.append("Content-Type","application/json");
-        this.http.post("http://localhost:8080/CrudPessoas/WebService/cadastrar",JSON.stringify(this.pessoa),{headers:headers})
-        .subscribe(()=> {
-          this.pessoa = new PessoasComponent(); 
-          console.log("Salvo com sucesso!");
-        },erro => console.log("Error ao salvar: "+erro));
+
+       if(this.pessoa.cod){//pessoa já cadastrada
+              this.http.put("http://localhost:8080/CrudPessoas/WebService/alterar",JSON.stringify(this.pessoa),{headers:headers})
+                   .subscribe(()=> {
+                        this.pessoa = new PessoasComponent(); 
+                        console.log("Salvo com sucesso!");
+              },erro => console.log("Error ao salvar: "+erro));
+       }else{//pessoa nao cadastrada ainda
+              this.http.post("http://localhost:8080/CrudPessoas/WebService/cadastrar",JSON.stringify(this.pessoa),{headers:headers})
+                   .subscribe(()=> {
+                        this.pessoa = new PessoasComponent(); 
+                        console.log("Salvo com sucesso!");
+              },erro => console.log("Error ao salvar: "+erro));
+       }
+        
     }
 
 }

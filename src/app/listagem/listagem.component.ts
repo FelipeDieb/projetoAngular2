@@ -18,12 +18,17 @@ export class ListagemComponent  {
   constructor(http: Http){
        this.http = http;
        this.listaPessoas();
+       this.pessoa.nome = "felipe dieb";
+       this.pessoa.cpf="312312312";
+       this.pessoa.email = "felipe_dieb@hotmail.com";
+       this.pessoas.push(this.pessoa);
+
   }
 
    listaPessoas(){
           this.http.get("http://localhost:8080/CrudPessoas/WebService/listar")
           .map(res => res.json()).subscribe(pessoas => {
-                this.pessoas = pessoas;
+                //this.pessoas = pessoas;
                 console.log(this.pessoas);
         },erro => console.log("Error Felipe "+ erro));
    }
