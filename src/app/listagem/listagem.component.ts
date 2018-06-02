@@ -28,17 +28,16 @@ export class ListagemComponent  {
         },erro => console.log("Error Felipe "+ erro));
    }
 
-   deletePessoa(event){
-        event.preventDefault();
-        console.log(this.pessoa);
+   deletePessoa(cod){
+        console.log(cod);
 
         let headers = new Headers();
         headers.append("Content-Type","application/json");
 
-        this.http.post("http://localhost:8080/CrudPessoas/WebService/excluir/"+this.pessoa.cod,{headers:headers})
+        this.http.post("http://localhost:8080/CrudPessoas/WebService/excluir/"+cod,{headers:headers})
            .subscribe(()=> {
                 this.pessoa = new PessoasComponent(); 
-                console.log("Salvo com sucesso!");
+                console.log("Delete com sucesso!");
          },erro => console.log("Error ao salvar: "+erro));
     }
 
