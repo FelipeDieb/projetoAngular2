@@ -13,5 +13,6 @@ export class PessoasComponent  {
     @Input() cpf: string;
     @Input() idade:number;
     @Input() telefone: Array<TelefonesComponent>;
+    @Input() dataNascimento:Date;
 
 }

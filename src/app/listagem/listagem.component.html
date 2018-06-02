@@ -49,7 +49,16 @@
         <td>{{pessoa.cpf}}</td>
         <td>{{pessoa.idade}}</td>
         <td>{{pessoa.telefone}}</td>
-        <td>{{pessoa.cpf}}</td>
+        <td>    
+        <a [routerLink]="['/editar', pessoa]">
+          Editar
+        </a> 
+
+        <a (click)="deletePessoa(pessoa.cod)" href="">
+          Deletar
+        </a>
+        
+        </td>
       </tr>
   </tbody>
 </table>

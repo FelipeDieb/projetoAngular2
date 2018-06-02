@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { PessoasComponent } from "app/pessoas/pessoas.component";
 
 @Component({
@@ -8,26 +8,39 @@ import { PessoasComponent } from "app/pessoas/pessoas.component";
   templateUrl: './listagem.component.html',
   styleUrls: ['./listagem.component.css']
 })
-export class ListagemComponent implements OnInit {
+export class ListagemComponent  {
 
     pessoas: PessoasComponent[] = [];
-    //teste
-    pessoa:PessoasComponent;
+    pessoa: PessoasComponent = new PessoasComponent();
+    http: Http;
+
 
   constructor(http: Http){
-     
-        http.
-        get("http://localhost:8080/CrudPessoas/WebService/listar")
-        .map(res => res.json())
-        .subscribe(pessoas => {
-        
-          this.pessoas = pessoas;
-          console.log(this.pessoas);
+       this.http = http;
+       this.listaPessoas();
+  }
+
+   listaPessoas(){
+          this.http.get("http://localhost:8080/CrudPessoas/WebService/listar")
+          .map(res => res.json()).subscribe(pessoas => {
+                this.pessoas = pessoas;
+                console.log(this.pessoas);
         },erro => console.log("Error Felipe "+ erro));
+   }
 
-  }
+   deletePessoa(event){
+        event.preventDefault();
+        console.log(this.pessoa);
 
-  ngOnInit() {
-  }
+        let headers = new Headers();
+        headers.append("Content-Type","application/json");
+
+        this.http.post("http://localhost:8080/CrudPessoas/WebService/excluir/"+this.pessoa.cod,{headers:headers})
+           .subscribe(()=> {
+                this.pessoa = new PessoasComponent(); 
+                console.log("Salvo com sucesso!");
+         },erro => console.log("Error ao salvar: "+erro));
+    }
+
 
 }

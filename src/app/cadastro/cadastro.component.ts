@@ -16,7 +16,6 @@ export class CadastroComponent  {
 
   constructor(http: Http){
     this.http = http;
-    this.pessoa.nome = '';
   }
 
     cadastrar(event){
